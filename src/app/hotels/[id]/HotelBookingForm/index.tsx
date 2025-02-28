@@ -59,8 +59,8 @@ const HotelBookingForm = ({ hotel }: HotelBookingFormType) => {
           }}
         />
         <CalendarField
-          id="checkOur"
-          name="checkOur"
+          id="checkOut"
+          name="checkOut"
           label="Data de check-out"
           className="w-full m-5"
           required
