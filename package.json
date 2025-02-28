@@ -2,11 +2,14 @@
   "name": "dnc-hotel-ui",
   "version": "0.1.0",
   "private": true,
+  "type": "commonjs",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "mock": "node --watch mock-server.js",
+    "dev:mock": "concurrently \"npm run dev\" \"npm run mock\""
   },
   "dependencies": {
     "axios": "^1.7.9",
@@ -20,8 +23,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^9.1.2",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
+    "json-server": "^0.17.4",
+    "jsonwebtoken": "^9.0.2",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"

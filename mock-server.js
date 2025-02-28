@@ -70,5 +70,40 @@ app.post('/users/avatar', (req, res) => {
     })
 })
 
+app.get('/hotels', (req, res) => {
+    const page = Number(req.query.page) || 1;
+    const perPage = Number(req.query.limit) || 10;
+
+    const hotels = app.db.get('hotels').value();
+
+    const total = hotels.length;
+    
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
+
+    const paginatedHotels = hotels.slice(start, end);
+
+    res.status(200).jsonp({
+        total,
+        page: page,
+        per_page: perPage,
+        data: paginatedHotels,
+    })
+})
+
+app.post('/reservations', (req, res) => {
+    res.status(201).jsonp({
+        id: 1,
+        userId: 3,
+        hotelId: 2,
+        checkIn: "2024-08-30T03:00:00.000Z",
+        checkOut: "2024-09-05T03:00:00.000Z",
+        total: -7674,
+        status: "PENDING",
+        createdAt: "2024-08-10T21:06:07.818Z",
+        updatedAt: "2024-08-10T21:06:07.818Z"
+    })
+})
+
 app.use(router);
 app.listen(3000);

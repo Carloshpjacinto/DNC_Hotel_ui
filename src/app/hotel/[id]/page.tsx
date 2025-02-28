@@ -1,36 +1,69 @@
-import { getHotelById } from "@/app/api/hotels/route"; 
-import Link from "@/components/Link";
+import { getServerSession } from "next-auth";
 import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { getHotels } from "@/app/api/hotels/route"; 
+import { getFormattedPrice } from "@/helpers/format/money"; 
+import Pagination from "@/components/Pagination";
 
-type Params = {
-  id: string;
+type SearchParams = {
+  page: string;
+  query: string;
 };
 
-type PageProps = {
-  params: Params;
+type HomeProps = {
+  searchParams: SearchParams;
 };
 
-const HotelDetalhePage = async ({ params }: PageProps) => {
-  console.log({ params });
-  const { id } = params;
-  const hotel = await getHotelById(Number(id));
+const LIMIT = 8;
+
+export default async function Home({ searchParams }: HomeProps) {
+  const session = await getServerSession();
+  if (!session?.user) redirect("/login");
+
+  const currentPage = Number(searchParams.page ?? 1);
+
+  const {
+    data: hotels,
+    per_page,
+    page,
+    total,
+  } = await getHotels(currentPage, LIMIT);
+
+  console.log(hotels);
 
   return (
-    <div className="flex flex-col w-full px-10 py-20 sm:px-20 md:px-32 lg:px-56 xl:px-72">
-      <section className="w-full">
-        <Link href="/">Voltar</Link>
+    <div>
+      <section className="grid grid-cols-1 gap-2 px-5 sm:grid-cols-2 sm:px-10 md:grid-cols-3 lg:grid-cols-4 mt-20">
+        {hotels.map((hotel) => (
+          <Link href={`/hotels/${hotel.id}`} key={hotel.id}>
+            <article className="flex flex-col">
+              <div className="w-64 h-48">
+                <Image
+                  src={hotel.image ?? "/no-hotel.jpg"}
+                  width={250}
+                  height={250}
+                  quality={100}
+                  alt={`Foto do hotel ${hotel.name}`}
+                  className="object-cover rounded-3xl h-48"
+                />
+              </div>
+              <h3 className="font-bold mt-0">{hotel.name}</h3>
+              <span className="mt-2">{hotel.owner.name}</span>
+              <span className="mt-2">
+                <b>{getFormattedPrice(hotel.price)}</b> noite
+              </span>
+            </article>
+          </Link>
+        ))}
       </section>
-      <div className="relative w-full h-80 mt-2">
-        <Image
-          quality={100}
-          src={hotel.image ?? "/no-hotel.jpg"}
-          alt=""
-          fill
-          className="object-cover rounded-3xl"
+      <section className="flex justify-center mt-4 mb-8">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={Math.ceil(total / per_page)}
+          destination="/"
         />
-      </div>
+      </section>
     </div>
   );
-};
-
-export default HotelDetalhePage;
+}
