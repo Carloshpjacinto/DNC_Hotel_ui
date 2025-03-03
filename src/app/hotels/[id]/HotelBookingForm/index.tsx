@@ -1,12 +1,11 @@
 "use client";
 import TextField from "@/components/Form/TextField";
-import CalendarField from "@/components/Form/CalendarField"; 
+import CalendarField from "@/components/Form/CalendarField";
 import { Hotel } from "@/types/Hotel";
-import { ChangeEvent, useState } from "react";
-import { getFormattedPrice } from "@/helpers/format/money"; 
+import { ChangeEvent, useActionState, useState } from "react";
+import { getFormattedPrice } from "@/helpers/format/money";
 import Button from "@/components/Button";
-import { useFormState } from "react-dom";
-//import { reserveHotelById } from "@/app/api/reservations/actions";
+import { reserveHotelById } from "@/app/api/reservations/route"; 
 import Alert from "@/components/Alert";
 
 type HotelBookingFormType = {
@@ -29,7 +28,7 @@ const getNightsInHotel = (checkin: string | null, checkout: string | null) => {
 const initialState = { message: "", error: false };
 
 const HotelBookingForm = ({ hotel }: HotelBookingFormType) => {
-  //const [state, formAction] = useFormState(reserveHotelById, initialState);
+  const [state, formAction] = useActionState(reserveHotelById, initialState);
   const today = new Date().toISOString().substring(0, 10);
   const [checkinDate, setCheckinDate] = useState<string | null>(null);
   const [checkoutDate, setCheckoutDate] = useState<string | null>(null);
@@ -37,7 +36,7 @@ const HotelBookingForm = ({ hotel }: HotelBookingFormType) => {
     getNightsInHotel(checkinDate, checkoutDate) * hotel.price;
 
   return (
-    <form className="flex w-full flex-col mt-2">
+    <form action={formAction} className="flex w-full flex-col mt-2">
       <TextField
         id="hotelId"
         name="hotelId"
@@ -74,6 +73,16 @@ const HotelBookingForm = ({ hotel }: HotelBookingFormType) => {
         <span>Valor total</span>
         <span>{getFormattedPrice(estimatedPrice)}</span>
       </div>
+      <hr className="mt-10" />
+      {state.error && <Alert type="danger">{state.message}</Alert>}
+      <Button
+        appearance="primary"
+        type="submit"
+        disabled={false}
+        className="mt-10 block"
+      >
+        Reservar
+      </Button>
     </form>
   );
 };

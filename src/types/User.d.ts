@@ -1,12 +1,11 @@
-export type UserRole = 'ADMIN' | 'USER';
+export type Role = 'ADMIN' | 'USER'
 
 export type User = {
-  "id": number,
-  "name": string,
-  "email": string,
-  "password": string,
-  "role": UserRole,
-  "avatar": string,
-  "createdAt": string,
-  "updatedAt": string
+    id: number,
+    email: string,
+    name: string,
+    role: Role,
+    avatar: string | null,
+    createdAt: string,
+    password?: string,
 }
