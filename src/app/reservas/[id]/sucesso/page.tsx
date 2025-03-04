@@ -15,7 +15,7 @@ const SolicitacaoReservaPage = async ({ params }: DetailPageProps) => {
   return (
     <div className="flex flex-col w-full max-w-lg my-24 px-8">
       <section className="w-full">
-        <Link href="/reservas">Voltar</Link>
+        <Link href="/">Voltar</Link>
       </section>
       <section className="flex mt-2 flex-col">
         <article className="w-full">
