@@ -5,6 +5,7 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation';
 import { getHotelDetail } from '../hotels/route'; 
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function reserveHotelById(prevState: any, formData: FormData) {
     let reservationId;
 
@@ -46,4 +47,26 @@ export async function getReservationById(id: number): Promise<Reservation> {
     const hotel = await getHotelDetail(data.hotelId)
 
     return { ...data, hotel };
+}
+
+export async function getReservationsByUser(): Promise<Reservation[]> {
+    const accessToken = (await cookies()).get('access_token')?.value;
+    if (!accessToken) redirect('/login');
+    
+    const { data } = await axios.get(`/reservations/user`, {
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
+    })
+
+    if (data.length) {
+        const reservations = await Promise.all(data.map(async (reservation: Reservation) => {
+            const hotel = await getHotelDetail(reservation.hotelId);
+            return { ...reservation, hotel }
+        }));
+
+        return reservations
+    }
+
+    return data;
 }

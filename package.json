@@ -12,11 +12,14 @@
     "dev:mock": "concurrently \"npm run dev\" \"npm run mock\""
   },
   "dependencies": {
+    "@types/sinon": "^17.0.4",
     "axios": "^1.7.9",
     "next": "15.1.7",
     "next-auth": "^4.24.11",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-number-format": "^5.4.3",
+    "sinon": "^19.0.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

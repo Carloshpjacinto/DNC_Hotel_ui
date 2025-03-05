@@ -1,28 +1,46 @@
 {
-  "users":[
+  "users": [
     {
-      "id":1,
-      "email":"fabio@teste.com",
-      "name":"Fabio Tetsuo",
-      "role":"ADMIN",
+      "id": 1,
+      "email": "fabio@teste.com",
+      "name": "Fabio Tetsuo",
+      "role": "ADMIN",
       "avatar": "/user-photo.jpg",
-      "createdAt":"2024-07-28T16:25:58.655Z",
-      "password":"12345"
+      "createdAt": "2024-07-28T16:25:58.655Z",
+      "password": "12345"
     },
     {
-      "id":2,
-      "name":"Joao Teste",
-      "email":"joao@teste.com",
-      "password":"12345",
-      "createdAt":"2024-07-28T16:25:58.655Z",
-      "avatar":null
+      "id": 2,
+      "name": "Joao Teste",
+      "email": "joao@teste.com",
+      "password": "12345",
+      "createdAt": "2024-07-28T16:25:58.655Z",
+      "avatar": null
     },
     {
-      "name":"Fulano de Tal",
-      "email":"fulano@teste.com",
-      "password":"asdasd",
-      "role":"ADMIN",
-      "id":3
+      "name": "Fulano de Tal",
+      "email": "fulano@teste.com",
+      "password": "asdasd",
+      "role": "ADMIN",
+      "id": 3
+    },
+    {
+      "name": "Teste DNC",
+      "email": "teste@dnc.com.br",
+      "password": "12345",
+      "role": "ADMIN",
+      "id": 4,
+      "avatar": null,
+      "createdAt": "2024-08-11T21:45:05.938Z"
+    },
+    {
+      "name": "Teste DNC",
+      "email": "teste@dnc.com.br",
+      "password": "12345",
+      "role": "ADMIN",
+      "id": 5,
+      "avatar": null,
+      "createdAt": "2024-08-11T21:51:29.224Z"
     }
   ],
   "hotels": [
@@ -37,34 +55,34 @@
       "createdAt": "2024-08-10T16:35:12.233Z",
       "updatedAt": "2024-08-10T16:35:12.233Z",
       "owner": {
-        "id":1,
-        "email":"fabio@teste.com",
-        "name":"Fabio Tetsuo",
-        "role":"ADMIN",
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
         "avatar": "/user-photo.jpg",
-        "createdAt":"2024-07-28T16:25:58.655Z",
-        "password":"12345"
-      } 
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
     },
     {
       "id": 2,
       "name": "Hotel Teste 2",
       "description": "Hotel bonito",
       "address": "Rua Dnc, 123",
-      "image": null,
+      "image": "/hotel2.jpg",
       "price": 300,
       "ownerId": 1,
       "createdAt": "2024-08-10T16:35:12.233Z",
       "updatedAt": "2024-08-10T16:35:12.233Z",
       "owner": {
-        "id":1,
-        "email":"fabio@teste.com",
-        "name":"Fabio Tetsuo",
-        "role":"ADMIN",
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
         "avatar": "/user-photo.jpg",
-        "createdAt":"2024-07-28T16:25:58.655Z",
-        "password":"12345"
-      } 
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
     },
     {
       "id": 3,
@@ -77,14 +95,14 @@
       "createdAt": "2024-08-10T16:35:12.233Z",
       "updatedAt": "2024-08-10T16:35:12.233Z",
       "owner": {
-        "id":1,
-        "email":"fabio@teste.com",
-        "name":"Fabio Tetsuo",
-        "role":"ADMIN",
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
         "avatar": "/user-photo.jpg",
-        "createdAt":"2024-07-28T16:25:58.655Z",
-        "password":"12345"
-      } 
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
     },
     {
       "id": 4,
@@ -97,14 +115,14 @@
       "createdAt": "2024-08-10T16:35:12.233Z",
       "updatedAt": "2024-08-10T16:35:12.233Z",
       "owner": {
-        "id":1,
-        "email":"fabio@teste.com",
-        "name":"Fabio Tetsuo",
-        "role":"ADMIN",
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
         "avatar": "/user-photo.jpg",
-        "createdAt":"2024-07-28T16:25:58.655Z",
-        "password":"12345"
-      } 
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
     },
     {
       "id": 5,
@@ -117,14 +135,14 @@
       "createdAt": "2024-08-10T16:35:12.233Z",
       "updatedAt": "2024-08-10T16:35:12.233Z",
       "owner": {
-        "id":1,
-        "email":"fabio@teste.com",
-        "name":"Fabio Tetsuo",
-        "role":"ADMIN",
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
         "avatar": "/user-photo.jpg",
-        "createdAt":"2024-07-28T16:25:58.655Z",
-        "password":"12345"
-      } 
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
     },
     {
       "id": 6,
@@ -137,14 +155,14 @@
       "createdAt": "2024-08-10T16:35:12.233Z",
       "updatedAt": "2024-08-10T16:35:12.233Z",
       "owner": {
-        "id":1,
-        "email":"fabio@teste.com",
-        "name":"Fabio Tetsuo",
-        "role":"ADMIN",
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
         "avatar": "/user-photo.jpg",
-        "createdAt":"2024-07-28T16:25:58.655Z",
-        "password":"12345"
-      } 
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
     },
     {
       "id": 7,
@@ -157,14 +175,14 @@
       "createdAt": "2024-08-10T16:35:12.233Z",
       "updatedAt": "2024-08-10T16:35:12.233Z",
       "owner": {
-        "id":1,
-        "email":"fabio@teste.com",
-        "name":"Fabio Tetsuo",
-        "role":"ADMIN",
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
         "avatar": "/user-photo.jpg",
-        "createdAt":"2024-07-28T16:25:58.655Z",
-        "password":"12345"
-      } 
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
     },
     {
       "id": 8,
@@ -177,14 +195,14 @@
       "createdAt": "2024-08-10T16:35:12.233Z",
       "updatedAt": "2024-08-10T16:35:12.233Z",
       "owner": {
-        "id":1,
-        "email":"fabio@teste.com",
-        "name":"Fabio Tetsuo",
-        "role":"ADMIN",
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
         "avatar": "/user-photo.jpg",
-        "createdAt":"2024-07-28T16:25:58.655Z",
-        "password":"12345"
-      } 
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
     },
     {
       "id": 9,
@@ -197,14 +215,14 @@
       "createdAt": "2024-08-10T16:35:12.233Z",
       "updatedAt": "2024-08-10T16:35:12.233Z",
       "owner": {
-        "id":1,
-        "email":"fabio@teste.com",
-        "name":"Fabio Tetsuo",
-        "role":"ADMIN",
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
         "avatar": "/user-photo.jpg",
-        "createdAt":"2024-07-28T16:25:58.655Z",
-        "password":"12345"
-      } 
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
     },
     {
       "id": 10,
@@ -217,14 +235,14 @@
       "createdAt": "2024-08-10T16:35:12.233Z",
       "updatedAt": "2024-08-10T16:35:12.233Z",
       "owner": {
-        "id":1,
-        "email":"fabio@teste.com",
-        "name":"Fabio Tetsuo",
-        "role":"ADMIN",
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
         "avatar": "/user-photo.jpg",
-        "createdAt":"2024-07-28T16:25:58.655Z",
-        "password":"12345"
-      } 
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
     },
     {
       "id": 11,
@@ -237,17 +255,55 @@
       "createdAt": "2024-08-10T16:35:12.233Z",
       "updatedAt": "2024-08-10T16:35:12.233Z",
       "owner": {
-        "id":1,
-        "email":"fabio@teste.com",
-        "name":"Fabio Tetsuo",
-        "role":"ADMIN",
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
         "avatar": "/user-photo.jpg",
-        "createdAt":"2024-07-28T16:25:58.655Z",
-        "password":"12345"
-      } 
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
     }
   ],
   "reservations": [
+    {
+      "id": 1,
+      "userId": 2,
+      "hotelId": 2,
+      "checkIn": "2024-08-30T03:00:00.000Z",
+      "checkOut": "2024-09-05T03:00:00.000Z",
+      "total": -7674,
+      "status": "CANCELLED",
+      "createdAt": "2024-08-10T21:06:07.818Z",
+      "updatedAt": "2024-08-10T21:06:07.818Z",
+      "user": {
+        "id": 2,
+        "name": "Joao Teste",
+        "email": "joao@teste.com",
+        "password": "12345",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "avatar": null
+      }
+    },
+    {
+      "id": 1,
+      "userId": 2,
+      "hotelId": 2,
+      "checkIn": "2024-08-30T03:00:00.000Z",
+      "checkOut": "2024-09-05T03:00:00.000Z",
+      "total": -7674,
+      "status": "APPROVED",
+      "createdAt": "2024-08-10T21:06:07.818Z",
+      "updatedAt": "2024-08-10T21:06:07.818Z",
+      "user": {
+        "id": 2,
+        "name": "Joao Teste",
+        "email": "joao@teste.com",
+        "password": "12345",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "avatar": null
+      }
+    },
     {
       "id": 1,
       "userId": 2,
@@ -259,12 +315,12 @@
       "createdAt": "2024-08-10T21:06:07.818Z",
       "updatedAt": "2024-08-10T21:06:07.818Z",
       "user": {
-        "id":2,
-        "name":"Joao Teste",
-        "email":"joao@teste.com",
-        "password":"12345",
-        "createdAt":"2024-07-28T16:25:58.655Z",
-        "avatar":null
+        "id": 2,
+        "name": "Joao Teste",
+        "email": "joao@teste.com",
+        "password": "12345",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "avatar": null
       }
     }
   ]
