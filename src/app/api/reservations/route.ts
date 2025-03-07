@@ -1,9 +1,10 @@
 "use server"
 import axios from '@/api'
-import { Reservation } from '@/types/Reservation';
+import { Reservation, ReservationStatus} from '@/types/Reservation';
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation';
 import { getHotelDetail } from '../hotels/route'; 
+import { Hotel } from '@/types/Hotel';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function reserveHotelById(prevState: any, formData: FormData) {
@@ -64,6 +65,26 @@ export async function getReservationsByUser(): Promise<Reservation[]> {
             const hotel = await getHotelDetail(reservation.hotelId);
             return { ...reservation, hotel }
         }));
+
+        return reservations
+    }
+
+    return data;
+}
+
+
+export async function getReservationsByHotel(hotel: Hotel): Promise<Reservation[]> {
+    const accessToken = (await cookies()).get('access_token')?.value;
+    if (!accessToken) redirect('/login');
+    
+    const { data } = await axios.get(`/reservations/hotel/${hotel.id}`, {
+        headers: { Authorization: `Bearer ${accessToken}` }
+    })
+
+    if (data.length) {
+        const reservations = data.map((reservation: Reservation) => {
+            return { ...reservation, hotel }
+        });
 
         return reservations
     }

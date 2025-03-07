@@ -2,9 +2,10 @@
 import TextField from "@/components/Form/TextField";
 import CalendarField from "@/components/Form/CalendarField";
 import { Hotel } from "@/types/Hotel";
-import { ChangeEvent, useActionState, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { getFormattedPrice } from "@/helpers/format/money";
 import Button from "@/components/Button";
+import { useFormState } from "react-dom";
 import { reserveHotelById } from "@/app/api/reservations/route"; 
 import Alert from "@/components/Alert";
 
@@ -28,7 +29,7 @@ const getNightsInHotel = (checkin: string | null, checkout: string | null) => {
 const initialState = { message: "", error: false };
 
 const HotelBookingForm = ({ hotel }: HotelBookingFormType) => {
-  const [state, formAction] = useActionState(reserveHotelById, initialState);
+  const [state, formAction] = useFormState(reserveHotelById, initialState);
   const today = new Date().toISOString().substring(0, 10);
   const [checkinDate, setCheckinDate] = useState<string | null>(null);
   const [checkoutDate, setCheckoutDate] = useState<string | null>(null);

@@ -23,24 +23,6 @@
       "password": "asdasd",
       "role": "ADMIN",
       "id": 3
-    },
-    {
-      "name": "Teste DNC",
-      "email": "teste@dnc.com.br",
-      "password": "12345",
-      "role": "ADMIN",
-      "id": 4,
-      "avatar": null,
-      "createdAt": "2024-08-11T21:45:05.938Z"
-    },
-    {
-      "name": "Teste DNC",
-      "email": "teste@dnc.com.br",
-      "password": "12345",
-      "role": "ADMIN",
-      "id": 5,
-      "avatar": null,
-      "createdAt": "2024-08-11T21:51:29.224Z"
     }
   ],
   "hotels": [
@@ -273,7 +255,7 @@
       "checkIn": "2024-08-30T03:00:00.000Z",
       "checkOut": "2024-09-05T03:00:00.000Z",
       "total": -7674,
-      "status": "CANCELLED",
+      "status": "PENDING",
       "createdAt": "2024-08-10T21:06:07.818Z",
       "updatedAt": "2024-08-10T21:06:07.818Z",
       "user": {
@@ -311,7 +293,7 @@
       "checkIn": "2024-08-30T03:00:00.000Z",
       "checkOut": "2024-09-05T03:00:00.000Z",
       "total": -7674,
-      "status": "PENDING",
+      "status": "CANCELLED",
       "createdAt": "2024-08-10T21:06:07.818Z",
       "updatedAt": "2024-08-10T21:06:07.818Z",
       "user": {

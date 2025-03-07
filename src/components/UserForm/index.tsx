@@ -20,6 +20,8 @@ const UserForm = ({ user }: UserFormProps) => {
   const action = user ? updateProfile : signup;
   const [state, formAction] = useFormState(action, initialState);
 
+  console.log({user})
+
   return (
     <>
       {state.error && <Alert type="danger">{state.message}</Alert>}

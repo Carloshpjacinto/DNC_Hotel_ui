@@ -105,6 +105,21 @@ app.post('/hotels', (req, res) => {
     })
 })
 
+
+app.patch('/hotels/:id', (req, res) => {
+    res.status(201).jsonp({
+        "id": 3,
+        "name": "Hotel Beira Mar",
+        "description": "Hotel de frente para praia",
+        "address": "Rua da praia, 123",
+        "image": null,
+        "price": 480,
+        "ownerId": 4,
+        "createdAt": "2024-08-11T17:16:49.100Z",
+        "updatedAt": "2024-08-11T17:16:49.100Z"
+    })
+})
+
 app.patch('/hotels/image/:id', (req, res) => {
     res.status(200).jsonp({
         "id": 3,
