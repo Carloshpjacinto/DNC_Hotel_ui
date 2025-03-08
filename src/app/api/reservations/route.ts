@@ -72,10 +72,11 @@ export async function getReservationsByUser(): Promise<Reservation[]> {
     return data;
 }
 
-
 export async function getReservationsByHotel(hotel: Hotel): Promise<Reservation[]> {
     const accessToken = (await cookies()).get('access_token')?.value;
     if (!accessToken) redirect('/login');
+
+    console.log({hotel})
     
     const { data } = await axios.get(`/reservations/hotel/${hotel.id}`, {
         headers: { Authorization: `Bearer ${accessToken}` }

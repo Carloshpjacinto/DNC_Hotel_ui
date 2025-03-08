@@ -5,7 +5,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getReservationsByUser } from '../reservations/route';
 import { User, UserProfile } from '@/types/User';
-import { getHotelByOwner } from '../hotels/route'; 
+import { getHotelByOwner } from '../hotels/route';
 
 export async function getProfile(): Promise<UserProfile> {
     const accessToken = (await cookies()).get('access_token')?.value;

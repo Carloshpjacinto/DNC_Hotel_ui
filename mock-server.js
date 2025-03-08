@@ -33,16 +33,18 @@ app.post('/auth/login', (req, res) => {
 
 app.post('/auth/register', (req, res) => {
     const body = req.body;
-    const users = app.get('users').value();
+    const users = app.db.get('users').value();
+    console.log({users})
     const id = users.length ? Math.max(...users.map(user => user.id)) : 1
 
+    
     const newUser = {
         ...body,
         id: id + 1,
         avatar: null,
         createdAt: new Date().toISOString()
     };
-    app.get('users').push(newUser).write()
+    app.db.get('users').push(newUser).write()
 
     return res.status(201).jsonp(newUser)
 })
@@ -154,6 +156,11 @@ app.post('/reservations', (req, res) => {
 })
 
 app.get('/reservations/user', (req, res) => {
+    const reservations = app.db.get('reservations').value();
+    res.status(200).jsonp(reservations)
+})
+
+app.get('/reservations/hotel/:id', (req, res) => {
     const reservations = app.db.get('reservations').value();
     res.status(200).jsonp(reservations)
 })

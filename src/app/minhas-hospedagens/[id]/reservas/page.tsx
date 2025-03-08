@@ -1,11 +1,14 @@
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import DetailListItem from "@/components/DetailListItem"; 
+import DetailListItem from "@/components/DetailListItem";
 import Link from "@/components/Link";
 import { STATUS } from "@/helpers/format/dictionary/status";
 import { Reservation } from "@/types/Reservation";
-import { getReservationsByHotel, getReservationsByUser } from "@/app/api/reservations/route";
-import { getHotelById } from "@/app/api/hotels/route"; 
+import {
+  getReservationsByHotel,
+  getReservationsByUser,
+} from "@/app/api/reservations/route";
+import { getHotelById } from "@/app/api/hotels/route";
 import { DetailPageProps } from "@/types/DetailPage";
 import ReservationOwnerListItem from "@/components/DetailListItem/Owner";
 
