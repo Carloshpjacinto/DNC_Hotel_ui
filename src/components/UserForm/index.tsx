@@ -7,7 +7,7 @@ import Button from "../Button";
 import Alert from "../Alert";
 import { useFormState } from "react-dom";
 import { signup } from "@/app/api/auth/signup/route";
-import { updateProfile } from "@/app/api/users/route"; 
+import { updateProfile } from "@/app/api/users/route";
 import { User } from "@/types/User";
 
 const initialState = { error: false, message: "" };
@@ -19,8 +19,6 @@ type UserFormProps = {
 const UserForm = ({ user }: UserFormProps) => {
   const action = user ? updateProfile : signup;
   const [state, formAction] = useFormState(action, initialState);
-
-  console.log({user})
 
   return (
     <>

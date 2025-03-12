@@ -1,7 +1,6 @@
-import { getReservationById } from "@/app/api/reservations/route"; 
+import { getReservationById } from "@/app/api/reservations/route";
 import DetailRow from "@/components/DetailListItem/DetailRow";
 import DetailPage from "@/components/DetailPage";
-import Link from "@/components/Link";
 import UserDetail from "@/components/UserDetail";
 import { getFormattedDate } from "@/helpers/format/date";
 import { getFormattedStatus } from "@/helpers/format/dictionary/status";
@@ -9,6 +8,7 @@ import { getFormattedPrice } from "@/helpers/format/money";
 import { DetailPageProps } from "@/types/DetailPage";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import BackButton from "./BackButton";
 
 const DetalhesReservaPage = async ({ params }: DetailPageProps) => {
   const session = await getServerSession();
@@ -23,7 +23,9 @@ const DetalhesReservaPage = async ({ params }: DetailPageProps) => {
         src: reservation.hotel.image ?? "/no-hotel.jpg",
         alt: `Foto do hotel ${reservation.hotel.name}`,
       }}
-      previousPage="/reservas"
+      backButton={
+        <BackButton reservation={reservation} className="" text="Voltar" />
+      }
       asideContainer={{
         title: "Informações da estadia",
         children: (
@@ -54,14 +56,12 @@ const DetalhesReservaPage = async ({ params }: DetailPageProps) => {
               className="mt-2"
             />
             <hr className="mt-10" />
-            <Link href="/reservas" className="block w-full text-center mt-10">
-              Voltar para minhas reservas
-            </Link>
+            <BackButton reservation={reservation} />
           </div>
         ),
       }}
     >
-      <UserDetail user={reservation.hotel.owner} />
+      <UserDetail reservation={reservation} />
       <hr className="my-10" />
       <div className="mt-4 flex flex-col">
         <h3 className="font-bold text-2xl">Endereço</h3>

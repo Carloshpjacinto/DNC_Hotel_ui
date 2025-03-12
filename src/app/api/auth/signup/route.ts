@@ -2,6 +2,7 @@
 import axios from "@/api";
 import { redirect } from "next/navigation";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function signup(prevState: any, formData: FormData) {
     try {
         const avatar = formData.get('avatar') as File;
@@ -31,6 +32,4 @@ export async function signup(prevState: any, formData: FormData) {
     }
     
     redirect('/login')
-    
-
 }

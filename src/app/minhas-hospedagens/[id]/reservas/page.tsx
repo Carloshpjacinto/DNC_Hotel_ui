@@ -1,11 +1,13 @@
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import DetailListItem from "@/components/DetailListItem";
 import Link from "@/components/Link";
 import { STATUS } from "@/helpers/format/dictionary/status";
 import { Reservation } from "@/types/Reservation";
 import {
   getReservationsByHotel,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   getReservationsByUser,
 } from "@/app/api/reservations/route";
 import { getHotelById } from "@/app/api/hotels/route";

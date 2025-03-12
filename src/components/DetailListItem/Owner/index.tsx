@@ -5,6 +5,9 @@ import DetailRow from "../DetailRow";
 import { getFormattedPrice } from "@/helpers/format/money";
 import Button from "@/components/Button";
 import { getFormattedDetailedDate } from "@/helpers/format/date";
+import { updateReservationStatus } from "@/app/api/reservations/route";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 type ReservationOwnerListItemProps = {
   reservation: Reservation;
@@ -13,6 +16,21 @@ type ReservationOwnerListItemProps = {
 const ReservationOwnerListItem = ({
   reservation,
 }: ReservationOwnerListItemProps) => {
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+  const handleReservationStatus = (status: ReservationStatus) => async () => {
+    setLoading(true);
+    try {
+      await updateReservationStatus(reservation.id, status);
+      setLoading(false);
+      router.push(`/reservas/${reservation.id}`);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <div className="flex w-full mt-5 md:mt-0">
@@ -38,8 +56,19 @@ const ReservationOwnerListItem = ({
           </div>
           {reservation.status === "PENDING" && (
             <div className="flex">
-              <Button>Aprovar</Button>
-              <Button appearance="secondary">Negar</Button>
+              <Button
+                disabled={loading}
+                onClick={handleReservationStatus("APPROVED")}
+              >
+                Aprovar
+              </Button>
+              <Button
+                disabled={loading}
+                onClick={handleReservationStatus("CANCELLED")}
+                appearance="secondary"
+              >
+                Negar
+              </Button>
             </div>
           )}
         </div>

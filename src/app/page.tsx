@@ -26,6 +26,7 @@ export default async function Home({ searchParams }: HomeProps) {
   const {
     data: hotels,
     per_page,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     page,
     total,
   } = await getHotels(currentPage, LIMIT);
